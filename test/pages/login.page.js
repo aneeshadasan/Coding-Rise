@@ -25,17 +25,17 @@ class LoginPage extends Page {
         return super.open();
     }
     
-    async loginWithValidCredentials (username , password) {
+    async login (username , password) {       
       
         let usrName = await this.inputUsername;
         let pswd = await this.inputPassword;
-        let loginBtn = this.btnSubmit;
+        let loginBtn = await this.btnSubmit;
 
+        console.log ("UserName ");
         await usrName.setValue(username);
         console.log ("UserName: "+ username);
         await pswd.setValue(password);
-        console.log("Enter password"+password);  
-        await this.inputPassword.setValue(password);
+        console.log("Enter password"+password);          
 
         await loginBtn.click();
         await browser.pause(2000);
